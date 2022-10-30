@@ -1,7 +1,3 @@
-using System.Runtime.CompilerServices;
-
-[assembly: InternalsVisibleTo("Codility.Tests")]
-
 namespace Codility.Lessons.Iterations;
 
 /*
@@ -31,9 +27,9 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [1..2,147,483,647].
 
  */
-internal static class BinaryGap
+public static class BinaryGap
 {
-	internal static int Solution(int number)
+	public static int Solution(int number)
 	{
 		var maxGap = 0;
 		var currentGap = 0;
