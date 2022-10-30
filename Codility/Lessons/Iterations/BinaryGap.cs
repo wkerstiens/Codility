@@ -35,8 +35,25 @@ internal static class BinaryGap
 {
 	internal static int Solution(int number)
 	{
+		var maxGap = 0;
+		var currentGap = 0;
+		var gapCountStarted = false;
+
 		var binary = Convert.ToString(number, 2);
-		Console.WriteLine(binary);
-		return 0;
+		foreach (var bit in binary)
+			switch (gapCountStarted)
+			{
+			case false when bit == '1':
+				gapCountStarted = true;
+				break;
+			case true when bit == '1' && currentGap > 0:
+				maxGap = Math.Max(maxGap, currentGap);
+				currentGap = 0;
+				break;
+			case true when bit == '0':
+				currentGap++;
+				break;
+			}
+		return maxGap;
 	}
 }
